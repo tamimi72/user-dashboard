@@ -9,6 +9,12 @@ export const DarkModeSwitch = () => {
       <Switch
          checked={isDark}
          onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+         size="sm"
+         css={{
+            transform: 'translateY(-2px) translateX(0px)',
+            width: '24px',
+            height: '24px'
+          }}
       />
    );
 };

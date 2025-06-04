@@ -1,5 +1,6 @@
 import {Card, Text} from '@nextui-org/react';
 import React from 'react';
+import Link from 'next/link';
 import {Community} from '../icons/community';
 import {Box} from '../styles/box';
 import {Flex} from '../styles/flex';
@@ -19,19 +20,33 @@ export const CardBalance2 = () => {
                <Community color={'$accents9'} />
                <Flex direction={'column'}>
                   <Text span css={{color: ''}}>
-                     Healt Insurance
+                     Multiple Languages
                   </Text>
-                  <Text span size={'$xs'}>
-                     +2400 People
-                  </Text>
+                  <Link href="/uploads" passHref legacyBehavior>
+  <Text
+    as="a"
+    span
+    size={'$xs'}
+    css={{
+      textDecoration: 'none',
+      cursor: 'pointer',
+      color: '$accents9',
+      transition: 'color 0.2s',
+      '&:hover': {
+        textDecoration: 'underline',
+        color: '$blue600',
+      },
+    }}
+  >
+    Use it!
+  </Text>
+</Link>
                </Flex>
             </Flex>
             <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-               <Text span size={'$xl'} weight={'semibold'}>
-                  $12,138
-               </Text>
+               <Text span size={'$l'} weight={'semibold'}>
+               EmployAI supports seamless uploading of resumes in both Arabic and English, recognizing the diverse linguistic backgrounds of applicants.               </Text>
                <Text span css={{color: '$red600'}} size={'$xs'}>
-                  + 4.5%
                </Text>
             </Flex>
             <Flex css={{gap: '$12'}} align={'center'}>
@@ -42,10 +57,8 @@ export const CardBalance2 = () => {
                      css={{color: '$green600'}}
                      weight={'semibold'}
                   >
-                     {'↓'}
                   </Text>
                   <Text span size={'$xs'}>
-                     11,930 USD
                   </Text>
                </Box>
                <Box>
@@ -55,10 +68,8 @@ export const CardBalance2 = () => {
                      css={{color: '$red600'}}
                      weight={'semibold'}
                   >
-                     {'↑'}
                   </Text>
                   <Text span size={'$xs'}>
-                     54,120 USD
                   </Text>
                </Box>
                <Box>
@@ -68,10 +79,8 @@ export const CardBalance2 = () => {
                      css={{color: '$green600'}}
                      weight={'semibold'}
                   >
-                     {'⭐'}
                   </Text>
                   <Text span size={'$xs'}>
-                     150 VIP
                   </Text>
                </Box>
             </Flex>

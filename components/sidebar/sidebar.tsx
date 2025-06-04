@@ -20,6 +20,7 @@ import {SidebarMenu} from './sidebar-menu';
 import {FilterIcon} from '../icons/sidebar/filter-icon';
 import {useSidebarContext} from '../layout/layout-context';
 import {ChangeLogIcon} from '../icons/sidebar/changelog-icon';
+import {LogoutIcon} from '../icons/sidebar/logout-icon';
 import {useRouter} from 'next/router';
 
 export const SidebarWrapper = () => {
@@ -56,54 +57,22 @@ export const SidebarWrapper = () => {
                   />
                   <SidebarMenu title="Main Menu">
                      <SidebarItem
-                        isActive={router.pathname === '/accounts'}
-                        title="Accounts"
+                        isActive={router.pathname === '/uploads'}
+                        title="Uploads"
                         icon={<AccountsIcon />}
-                        href="accounts"
+                        href="uploads"
                      />
-                     <SidebarItem
-                        isActive={router.pathname === '/payments'}
-                        title="Payments"
-                        icon={<PaymentsIcon />}
-                     />
-                     <CollapseItems
-                        icon={<BalanceIcon />}
-                        items={['Banks Accounts', 'Credit Cards', 'Loans']}
-                        title="Balances"
-                     />
-
-                     <SidebarItem
-                        isActive={router.pathname === '/customers'}
-                        title="Customers"
-                        icon={<CustomersIcon />}
-                     />
-                     <SidebarItem
-                        isActive={router.pathname === '/products'}
-                        title="Products"
-                        icon={<ProductsIcon />}
-                     />
-                     <SidebarItem
-                        isActive={router.pathname === '/reports'}
-                        title="Reports"
+                  <SidebarItem
+                        isActive={router.pathname === '/cvrewriter'}
+                        title="CV Rewriter"
                         icon={<ReportsIcon />}
+                        href = "cvrewriter"
                      />
-                  </SidebarMenu>
-
-                  <SidebarMenu title="General">
-                     <SidebarItem
-                        isActive={router.pathname === '/developers'}
-                        title="Developers"
-                        icon={<DevIcon />}
-                     />
-                     <SidebarItem
-                        isActive={router.pathname === '/view'}
-                        title="View Test Data"
-                        icon={<ViewIcon />}
-                     />
-                     <SidebarItem
-                        isActive={router.pathname === '/settings'}
-                        title="Settings"
-                        icon={<SettingsIcon />}
+                                          <SidebarItem
+                        isActive={router.pathname === '/interview'}
+                        title="Interview"
+                        icon={<CustomersIcon />}
+                        href="interview"
                      />
                   </SidebarMenu>
 
@@ -113,22 +82,14 @@ export const SidebarWrapper = () => {
                         title="Changelog"
                         icon={<ChangeLogIcon />}
                      />
+                                    <SidebarMenu title="Other"></SidebarMenu>
+                     <SidebarItem
+                        isActive={router.pathname === '/logout'}
+                        title="Logout"
+                        icon={<LogoutIcon />}
+                     />
                   </SidebarMenu>
                </Sidebar.Body>
-               <Sidebar.Footer>
-                  <Tooltip content={'Settings'} rounded color="primary">
-                     <SettingsIcon />
-                  </Tooltip>
-                  <Tooltip content={'Adjustments'} rounded color="primary">
-                     <FilterIcon />
-                  </Tooltip>
-                  <Tooltip content={'Profile'} rounded color="primary">
-                     <Avatar
-                        src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                        size={'sm'}
-                     />
-                  </Tooltip>
-               </Sidebar.Footer>
             </Flex>
          </Sidebar>
       </Box>

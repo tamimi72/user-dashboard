@@ -15,13 +15,13 @@ export const RenderCell = ({user, columnKey}: Props) => {
    // @ts-ignore
    const cellValue = user[columnKey];
    switch (columnKey) {
-      case 'name':
+      case 'upload':
          return (
-            <User squared src={user.avatar} name={cellValue} css={{p: 0}}>
-               {user.email}
-            </User>
+            <Text b size={14} css={{tt: 'capitalize'}}>
+               {cellValue}
+            </Text>
          );
-      case 'role':
+      case 'files':
          return (
             <Col>
                <Row>
@@ -59,15 +59,6 @@ export const RenderCell = ({user, columnKey}: Props) => {
                         onClick={() => console.log('View user', user.id)}
                      >
                         <EyeIcon size={20} fill="#979797" />
-                     </IconButton>
-                  </Tooltip>
-               </Col>
-               <Col css={{d: 'flex'}}>
-                  <Tooltip content="Edit user">
-                     <IconButton
-                        onClick={() => console.log('Edit user', user.id)}
-                     >
-                        <EditIcon size={20} fill="#979797" />
                      </IconButton>
                   </Tooltip>
                </Col>

@@ -4,12 +4,12 @@ import Chart, {Props} from 'react-apexcharts';
 
 const state: Props['series'] = [
    {
-      name: 'Series1',
-      data: [31, 40, 28, 51, 42, 109, 100],
+      name: 'Unemployment Rate',
+      data: [22.8, 22.5, 22.9, 23.1, 23.3, 23.5, 23.7],
    },
    {
-      name: 'Series2',
-      data: [11, 32, 45, 32, 34, 52, 41],
+      name: 'Job Applications',
+      data: [45000, 48000, 52000, 55000, 58000, 61000, 64000],
    },
 ];
 
@@ -29,16 +29,27 @@ const options: Props['options'] = {
       id: 'basic-bar',
       fontFamily: 'Inter, sans-serif',
       foreColor: 'var(--nextui-colors-accents9)',
-      stacked: true,
+      stacked: false,
       toolbar: {
          show: false,
       },
    },
+   colors: ['#FF4B4B', '#FF4B4B'],
+   plotOptions: {
+      area: {
+         fill: {
+            opacity: 0.5,
+            colors: ['#FF4B4B', 'transparent']
+         }
+      }
+   },
+   stroke: {
+      colors: ['#FF4B4B', 'transparent']
+   },
 
    xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+      categories: ['2022', '2023 Q1', '2023 Q2', '2023 Q3', '2023 Q4', '2024 Q1', '2024 Q2'],
       labels: {
-         // show: false,
          style: {
             colors: 'var(--nextui-colors-accents8)',
             fontFamily: 'Inter, sans-serif',
@@ -51,16 +62,54 @@ const options: Props['options'] = {
          color: 'var(--nextui-colors-border)',
       },
    },
-   yaxis: {
-      labels: {
-         style: {
-            colors: 'var(--nextui-colors-accents8)',
-            fontFamily: 'Inter, sans-serif',
+   yaxis: [
+      {
+         seriesName: 'Unemployment Rate',
+         title: {
+            text: 'Unemployment Rate (%)',
+            style: {
+               color: 'var(--nextui-colors-accents8)',
+            }
          },
+         labels: {
+            style: {
+               colors: 'var(--nextui-colors-accents8)',
+               fontFamily: 'Inter, sans-serif',
+            },
+         },
+         min: 20,
+         max: 25,
       },
-   },
+      {
+         seriesName: 'Job Applications',
+         opposite: true,
+         title: {
+            text: 'Job Applications (K)',
+            style: {
+               color: 'var(--nextui-colors-accents8)',
+            }
+         },
+         labels: {
+            style: {
+               colors: 'var(--nextui-colors-accents8)',
+               fontFamily: 'Inter, sans-serif',
+            },
+         },
+         min: 40,
+         max: 70,
+      }
+   ],
    tooltip: {
-      enabled: false,
+      enabled: true,
+      y: {
+         formatter: function (val, opts) {
+            if (opts.seriesIndex === 0) {
+               return val.toFixed(1) + '%';
+            } else {
+               return (val / 1000).toFixed(0) + 'K';
+            }
+         }
+      }
    },
    grid: {
       show: true,
@@ -70,12 +119,13 @@ const options: Props['options'] = {
    },
    stroke: {
       curve: 'smooth',
-      fill: {
-         colors: ['red'],
-      },
+      width: 3,
    },
-   // @ts-ignore
-   markers: false,
+   colors: ['#FF4757', '#2F80ED'],
+   markers: {
+      size: 4,
+      strokeWidth: 2,
+   },
 };
 
 export const Steam = () => {

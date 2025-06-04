@@ -45,31 +45,21 @@ export const CardAgents = () => {
                   <Box>
                      <Flex direction={'column'}>
                         <Text h3 css={{margin: 0}}>
-                           Agents
+                        Quick Tip
                         </Text>
                      </Flex>
                   </Box>
                </Flex>
             </Flex>
             <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-               <Text span size={'$xs'}>
-                  Meet your agenda and see their ranks to get the best results
+               <Text span css={{
+                  fontSize: '$md',
+                  color: '$accents8',
+                  fontWeight: '500',
+                  letterSpacing: '0.2px'
+               }}>
+                  Uploading your CV in PDF ensures better formatting and analysis accuracy.
                </Text>
-            </Flex>
-            <Flex css={{pt: '$4'}} align={'center'} justify={'center'}>
-               <Avatar.Group count={12}>
-                  {pictureUsers.map((url, index) => (
-                     <Avatar
-                        key={index}
-                        size="lg"
-                        pointer
-                        src={url}
-                        bordered
-                        color="gradient"
-                        stacked
-                     />
-                  ))}
-               </Avatar.Group>
             </Flex>
          </Card.Body>
       </Card>
