@@ -9,12 +9,18 @@ interface Props {
    icon: React.ReactNode;
    isActive?: boolean;
    href?: string;
+   onClick?: () => void;
 }
 
-export const SidebarItem = ({icon, title, isActive, href = ''}: Props) => {
+export const SidebarItem = ({icon, title, isActive, href = '', onClick}: Props) => {
    const {collapsed, setCollapsed} = useSidebarContext();
 
-   const handleClick = () => {
+   const handleClick = (e: React.MouseEvent) => {
+      if (onClick) {
+         e.preventDefault();
+         e.stopPropagation();
+         onClick();
+      }
       if (window.innerWidth < 768) {
          setCollapsed();
       }

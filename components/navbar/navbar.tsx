@@ -98,7 +98,19 @@ export const NavbarWrapper = ({children}: Props) => {
                 </Navbar.Content>
 
                 <Navbar.Content hideIn={'md'}>
-                   <Flex align={'center'} css={{gap: '$4'}}>
+                   <Flex 
+                      align={'center'} 
+                      css={{gap: '$4', cursor: 'pointer', '&:hover': { opacity: 0.8 }}}
+                      onClick={() => {
+                         const topic = prompt('Please enter the topic of your feedback:');
+                         if (topic === null) return; // User clicked cancel
+                         
+                         const feedback = prompt('Please enter your feedback:');
+                         if (feedback === null) return; // User clicked cancel
+                         
+                         alert(`Thank you for your feedback!\n\nTopic: ${topic}\nFeedback: ${feedback}`);
+                      }}
+                   >
                       <FeedbackIcon />
                       <Text span>Feedback?</Text>
                    </Flex>

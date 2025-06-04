@@ -87,6 +87,19 @@ export const SidebarWrapper = () => {
                         isActive={router.pathname === '/logout'}
                         title="Logout"
                         icon={<LogoutIcon />}
+                        onClick={async () => {
+                           try {
+                              // Clear any authentication tokens or user data from localStorage
+                              if (typeof window !== 'undefined') {
+                                 localStorage.removeItem('token');
+                                 localStorage.removeItem('user');
+                                 // Use replace instead of href to prevent back button from going back to dashboard
+                                 window.location.replace('http://localhost:3000/signin');
+                              }
+                           } catch (error) {
+                              console.error('Logout failed:', error);
+                           }
+                        }}
                      />
                   </SidebarMenu>
                </Sidebar.Body>
